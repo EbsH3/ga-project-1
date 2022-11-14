@@ -1,0 +1,85 @@
+body {
+  background-image: url("../styles/Images/Gotham_skyline1.webp");
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.settings {
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: 1300px;
+  margin-top: -1100px;
+  border: 5px solid orange;
+  border-radius: 20px;
+  color: white;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 100px;
+  background-color: rgb(215, 136, 46);
+  color: white;
+  font-size: 15px;
+}
+
+.grid-wrapper {
+  height: 90vh;
+  display: flex;
+  width: 900px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 250px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 100px;
+  height: 800px;
+  width: 700px;
+  margin-top: -900px;
+}
+
+.grid div {
+  border: 10px solid orange;
+  border-radius: 15px;
+  height: 10%;
+  width: 10%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+
+.grid div.batman {
+  background-image: url(../styles/Images/Batman_Vol_3_86_Textless.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.grid div.joker {
+  background-image: url(../styles/Images/705479-original.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.instructions {
+  border: 5px solid orange;
+  border-radius: 20px;
+  height: 500px;
+  width: 300px;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+}
