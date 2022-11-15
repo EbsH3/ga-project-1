@@ -9,12 +9,30 @@
     <title>Connect-4</title>
   </head>
   <body>
+    <head>
+      <img
+        class="banner"
+        id="bmbanner"
+        src="/styles/Images/Batman-Banner.jpeg"
+      />
+    </head>
     <div class="instructions">
       <p>
-        GOTHAM CITY is under attack. Connect BATMAN in a row or column of 4 to
-        save the city.
+        <span id="white">GOTHAM CITY</span> is under attack. Connect BATMAN in a
+        row or column of 4 to save the city<span id="white">...</span>
       </p>
     </div>
+    <div class="characters">
+      <strong>PLAYER ONE</strong>
+      <img
+        class="player"
+        src="/styles/Images/sexybatman_750x422_creditonimage.jpeg"
+      />
+      <br />
+      <strong>PLAYER TWO</strong>
+      <img class="player" src="/styles/Images/705479-original.webp" />
+    </div>
+
     <div class="grid-wrapper">
       <div class="grid"></div>
     </div>
@@ -22,7 +40,15 @@
     <div class="settings">
       <h2 class="winnerdisplay">Winner LOADING....</h2>
 
-      <button class="reset">Reset</button><button>Mute sound</button>
+      <button class="reset">
+        Reset Game
+        <img class="icon" src="/styles/Images/refresh-icon.webp" />
+      </button>
+      <button class="muteBtn">
+        Mute sound <img class="icon" src="/styles/Images/mute.png" />
+      </button>
     </div>
+
+    <audio id="audio"></audio>
   </body>
 </html>

@@ -4,10 +4,16 @@ function init() {
   let isPlayerOne = true;
   const grid = document.querySelector(".grid");
   const resetBtn = document.querySelector(".reset");
+  const audio = document.getElementById("audio");
+  const muteBtn = document.getElementsByClassName("mute");
   const winnerDisplay = document.getElementsByClassName("winnerdisplay");
-  const gridCount = 6 * 7;
+  let gameOver = false;
+
+  const width = 7;
+  const height = 6;
+  const gridCount = height * width;
+
   const cells = [];
-  let currentPlayer = playerOne;
 
   function createGrid() {
     for (let index = 0; index < gridCount; index++) {
@@ -24,52 +30,78 @@ function init() {
     const className = isPlayerOne ? playerOne : playerTwo;
     event.target.classList.add(className);
     isPlayerOne = !isPlayerOne;
+    checkWinner();
   }
 
-  // const winnerCombo = [
-  //   [35, 36, 37, 38],
-  //   [38, 39, 40, 41],
-  //   [28, 29, 30, 31],
-  //   [31, 32, 33, 34],
-  //   [21, 22, 23, 24],
-  //   [24, 25, 26, 27],
-  //   [14, 15, 16, 17],
-  //   [18, 19, 20, 21],
-  //   [7, 8, 9, 10],
-  //   [10, 11, 12, 13],
-  //   [0, 1, 2, 3],
-  //   [3, 4, 5, 6],
-  //   [0, 7, 14, 21],
-  //   [14, 21, 28, 35],
-  //   [1, 8, 15, 22],
-  //   [15, 22, 29, 36],
-  //   [2, 9, 16, 23],
-  //   [16, 23, 30, 37],
-  //   [3, 10, 17, 24],
-  //   [17, 24, 31, 38],
-  //   [4, 11, 18, 25],
-  //   [18, 25, 32, 39],
-  //   [5, 12, 19, 26],
-  //   [19, 26, 33, 40],
-  //   [6, 13, 20, 27],
-  //   [20, 27, 34, 41],
-  //   [7, 14, 21, 28],
-  //   [21, 28, 35, 42]
-  // ];
+  function playAudio(event) {
+    audio.src = `styles/audio/${event.target.classList}.wav`;
+    audio.play();
+  }
 
-  // function checkWinner() {
-  //   for (let index = 0; index < winnerCombo.length; index++) {
-  //     const index1 = grid[winnerCombo[index][0]];
-  //     const index2 = grid[winnerCombo[index][1]];
-  //     const index3 = grid[winnerCombo[index][2]];
-  //     const index4 = grid[winnerCombo[index][3]];
-  //   }
-  //   if (index1.classList.contains("batman") && index2.classList.contains("batman") && index3.classList.contains("batman") && index4.classList.contains("batman"), winnerDisplay.innerHTML = "Batman saves Gotham!";
-  // return;
-  // } else if (index1.classList.contains("joker") && index2.classList.contains("joker") && index3.classList.contains("joker") && index4.classList.contains("joker"), winnerDisplay.innerHTML = "The Joker Wins!"); return;
+  function muteSound(click) {
+    document.querySelectorAll("audio").forEach((element) => muteSound(element));
+  }
 
-  // resetBtn.addEventListener("click", ()=>(cell.forEach(cell =>forEach((cell) => cell.addEventListener("click", addPlayer))
+  function resetGame() {
+    grid.classList.remove("batman") && grid.classList.remove("joker");
+  }
+
+  resetBtn.addEventListener("click", resetGame);
+
+  const winnerCombo = [
+    [35, 36, 37, 38],
+    [38, 39, 40, 41],
+    [28, 29, 30, 31],
+    [31, 32, 33, 34],
+    [21, 22, 23, 24],
+    [24, 25, 26, 27],
+    [14, 15, 16, 17],
+    [18, 19, 20, 21],
+    [7, 8, 9, 10],
+    [10, 11, 12, 13],
+    [0, 1, 2, 3],
+    [3, 4, 5, 6],
+    [0, 7, 14, 21],
+    [14, 21, 28, 35],
+    [1, 8, 15, 22],
+    [15, 22, 29, 36],
+    [2, 9, 16, 23],
+    [16, 23, 30, 37],
+    [3, 10, 17, 24],
+    [17, 24, 31, 38],
+    [4, 11, 18, 25],
+    [18, 25, 32, 39],
+    [5, 12, 19, 26],
+    [19, 26, 33, 40],
+    [6, 13, 20, 27],
+    [20, 27, 34, 41],
+    [7, 14, 21, 28],
+    [21, 28, 35, 42],
+  ];
+
+  function checkWinner() {
+    for (let index = 0; index < winnerCombo.length; index++) {
+      const win = winnerCombo[index][([0], [1], [2], [3])];
+      if (win.classList.contains("batman")) {
+        winnerDisplay.innerHTML = "Batman saves Gotham";
+        gameOver = true;
+        resetGame();
+      } else if (win.classList.contains("joker")) {
+        winnerDisplay.innerHTML = "The J0ker lives to see another day!";
+        gameOver = true;
+        resetGame();
+      } else {
+        winnerDisplay.innerHTML = "No one wins. Better luck next time!";
+      }
+    }
+  }
+
   createGrid();
+
+  muteBtn.addEventListener("click", muteSound);
+  grid.forEach((grid) => {
+    grid.addEventListener("click", playAudio);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", init);
