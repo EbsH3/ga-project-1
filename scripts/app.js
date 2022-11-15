@@ -6,7 +6,7 @@ function init() {
   const resetBtn = document.querySelector(".reset");
   const audio = document.getElementById("audio");
   const muteBtn = document.getElementsByClassName("mute");
-  const winnerDisplay = document.getElementsByClassName("winnerdisplay");
+  const winnerDisplay = document.querySelector(".winnerdisplay");
   let gameOver = false;
 
   const width = 7;
@@ -80,19 +80,25 @@ function init() {
   ];
 
   function checkWinner() {
-    for (let index = 0; index < winnerCombo.length; index++) {
-      const win = winnerCombo[index][([0], [1], [2], [3])];
-      if (win.classList.contains("batman")) {
-        winnerDisplay.innerHTML = "Batman saves Gotham";
-        gameOver = true;
-        resetGame();
-      } else if (win.classList.contains("joker")) {
-        winnerDisplay.innerHTML = "The J0ker lives to see another day!";
-        gameOver = true;
-        resetGame();
-      } else {
-        winnerDisplay.innerHTML = "No one wins. Better luck next time!";
+    let winner = false;
+    winnerCombo.forEach((array) => {
+      if (array.every((i) => cells[i].classList.contains("batman"))) {
+        winner = playerOne;
+        return;
       }
+      if (array.every((i) => cells[i].classList.contains("joker"))) {
+        winner = playerTwo;
+        return;
+      }
+    });
+    if (winner) {
+      if (winner === playerOne) {
+        winnerDisplay.innerHTML = "Batman saves Gotham";
+      } else {
+        winnerDisplay.innerHTML = "The J0ker lives to see another day!";
+      }
+      gameOver = true;
+      resetGame();
     }
   }
 
