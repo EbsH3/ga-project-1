@@ -36,7 +36,7 @@ function init() {
   }
 
   // function playAudio(event) {
-  //   audio.src = `styles/audio/${event.target.classList}.wav`;
+  //   audio.src = `../assets/audio/${event.target.classList}.wav`;
   //   playAudio();
   // }
 
@@ -105,7 +105,7 @@ function init() {
         winnerDisplay.style.color = "white";
       }
       gameOver = true;
-      resetGame();
+      setTimeout(resetGame, 3000);
     }
   }
 
