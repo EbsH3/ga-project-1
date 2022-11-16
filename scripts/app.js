@@ -4,10 +4,12 @@ function init() {
   let isPlayerOne = true;
   const grid = document.querySelector(".grid");
   const resetBtn = document.querySelector(".reset");
-  const audio = document.getElementById("audio");
-  const muteBtn = document.getElementsByClassName("mute");
+  // const audio = document.querySelector("#audio");
+  const muteBtn = document.querySelector(".muteBtn");
   const winnerDisplay = document.querySelector(".winnerdisplay");
   let gameOver = false;
+
+  const audio = document.getElementById("themesong").play();
 
   const width = 7;
   const height = 6;
@@ -33,17 +35,20 @@ function init() {
     checkWinner();
   }
 
-  function playAudio(event) {
-    audio.src = `styles/audio/${event.target.classList}.wav`;
-    audio.play();
-  }
+  // function playAudio(event) {
+  //   audio.src = `styles/audio/${event.target.classList}.wav`;
+  //   playAudio();
+  // }
 
-  function muteSound(click) {
-    document.querySelectorAll("audio").forEach((element) => muteSound(element));
+  function muteSound() {
+    audio.muted = true;
   }
+  muteBtn.addEventListener("click", muteSound);
 
   function resetGame() {
-    grid.classList.remove("batman") && grid.classList.remove("joker");
+    grid.classList.remove("batman");
+    grid.classList.remove("joker");
+    location.reload();
   }
 
   resetBtn.addEventListener("click", resetGame);
@@ -94,8 +99,10 @@ function init() {
     if (winner) {
       if (winner === playerOne) {
         winnerDisplay.innerHTML = "Batman saves Gotham";
+        winnerDisplay.style.color = "white";
       } else {
         winnerDisplay.innerHTML = "The J0ker lives to see another day!";
+        winnerDisplay.style.color = "white";
       }
       gameOver = true;
       resetGame();
@@ -104,10 +111,9 @@ function init() {
 
   createGrid();
 
-  muteBtn.addEventListener("click", muteSound);
-  grid.forEach((grid) => {
-    grid.addEventListener("click", playAudio);
-  });
+  // Array.from(grid).forEach((cell) => {
+  //   cell.addEventListener("click", playAudio);
+  // });
 }
 
 document.addEventListener("DOMContentLoaded", init);

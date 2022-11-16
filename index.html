@@ -13,24 +13,28 @@
       <img
         class="banner"
         id="bmbanner"
-        src="/styles/Images/Batman-Banner.jpeg"
+        src="/assets/images/Batman-Banner.jpeg"
       />
     </head>
     <div class="instructions">
       <p>
-        <span id="white">GOTHAM CITY</span> is under attack. Connect BATMAN in a
-        row or column of 4 to save the city<span id="white">...</span>
+        <strong
+          ><span id="white">GOTHAM CITY</span> is under attack. Connect BATMAN
+          in a row or column of 4 to save the city<span id="white"
+            >...</span
+          ></strong
+        >
       </p>
     </div>
     <div class="characters">
       <strong>PLAYER ONE</strong>
       <img
         class="player"
-        src="/styles/Images/sexybatman_750x422_creditonimage.jpeg"
+        src="/assets/images/sexybatman_750x422_creditonimage.jpeg"
       />
       <br />
       <strong>PLAYER TWO</strong>
-      <img class="player" src="/styles/Images/705479-original.webp" />
+      <img class="player" src="/assets/images/705479-original.webp" />
     </div>
 
     <div class="grid-wrapper">
@@ -42,13 +46,16 @@
 
       <button class="reset">
         Reset Game
-        <img class="icon" src="/styles/Images/refresh-icon.webp" />
+        <img class="icon" src="/assets/images/refresh-icon.webp" />
       </button>
-      <button class="muteBtn">
-        Mute sound <img class="icon" src="/styles/Images/mute.png" />
-      </button>
+      <button class="muteBtn">Mute sound &#9611;</button>
     </div>
 
-    <audio id="audio"></audio>
+    <audio id="themesong">
+      <source
+        src="/assets/audio/8d82b5_Batman_Theme_Song.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
   </body>
 </html>
