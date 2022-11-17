@@ -9,7 +9,8 @@ function init() {
   const winnerDisplay = document.querySelector(".winnerdisplay");
   let gameOver = false;
 
-  const audio = document.getElementById("themesong").play();
+  const audio = document.getElementById("themesong");
+  audio.play();
 
   const width = 7;
   const height = 6;
@@ -49,7 +50,7 @@ function init() {
   // }
 
   function muteSound() {
-    audio.stop();
+    audio.pause();
   }
   muteBtn.addEventListener("click", muteSound);
 
@@ -123,13 +124,14 @@ function init() {
     if (winner) {
       if (winner === playerOne) {
         winnerDisplay.innerHTML = "Batman saves Gotham";
+
         winnerDisplay.style.color = "white";
       } else {
         winnerDisplay.innerHTML = "The J0ker lives to see another day!";
         winnerDisplay.style.color = "white";
       }
       gameOver = true;
-      setTimeout(resetGame, 3000);
+      setTimeout(resetGame, 1000);
     }
   }
 
