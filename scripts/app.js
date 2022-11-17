@@ -33,6 +33,14 @@ function init() {
     event.target.classList.add(className);
     isPlayerOne = !isPlayerOne;
     checkWinner();
+
+    // if (
+    //   cells[event.target.dataset.index].classList.contains("batman") ||
+    //   ("joker"); {
+    //   alert("This slot is taken. Try again");
+    // } else {
+    //   handleClick(event);
+    // }
   }
 
   // function playAudio(event) {
@@ -41,7 +49,7 @@ function init() {
   // }
 
   function muteSound() {
-    audio.muted = true;
+    audio.stop();
   }
   muteBtn.addEventListener("click", muteSound);
 
@@ -82,6 +90,22 @@ function init() {
     [20, 27, 34, 41],
     [7, 14, 21, 28],
     [21, 28, 35, 42],
+    [41, 33, 25, 17],
+    [40, 32, 24, 16],
+    [39, 31, 23, 15],
+    [38, 30, 22, 14],
+    [36, 30, 24, 18],
+    [35, 29, 23, 17],
+    [28, 22, 16, 10],
+    [21, 15, 9, 3],
+    [24, 18, 12, 6],
+    [23, 17, 11, 5],
+    [22, 16, 10, 4],
+    [34, 26, 18, 10],
+    [31, 23, 15, 7],
+    [24, 16, 8, 0],
+    [25, 17, 9, 1],
+    [27, 19, 11, 3],
   ];
 
   function checkWinner() {
