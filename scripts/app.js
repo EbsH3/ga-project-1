@@ -64,6 +64,8 @@ function init() {
 
   const winnerCombo = [
     [35, 36, 37, 38],
+    [36, 37, 38, 39],
+    [37, 38, 39, 40],
     [38, 39, 40, 41],
     [28, 29, 30, 31],
     [31, 32, 33, 34],
@@ -107,6 +109,29 @@ function init() {
     [24, 16, 8, 0],
     [25, 17, 9, 1],
     [27, 19, 11, 3],
+    [30, 24, 18, 12],
+    [2, 3, 4, 5],
+    [1, 2, 3, 4],
+    [38, 32, 26, 20],
+    [37, 31, 25, 19],
+    [31, 25, 19, 13],
+    [29, 23, 17, 11],
+    [30, 23, 16, 9],
+    [31, 24, 17, 10],
+    [32, 25, 18, 11],
+    [33, 26, 19, 12],
+    [34, 27, 20, 13],
+    [29, 22, 15, 8],
+    [29, 30, 31, 32],
+    [30, 31, 32, 33],
+    [22, 23, 24, 25],
+    [23, 24, 25, 26],
+    [15, 16, 17, 18],
+    [16, 17, 18, 19],
+    [17, 18, 19, 20],
+    [8, 9, 10, 11],
+    [9, 10, 11, 12],
+    [13, 19, 25, 21],
   ];
 
   function checkWinner() {
@@ -124,14 +149,17 @@ function init() {
     if (winner) {
       if (winner === playerOne) {
         winnerDisplay.innerHTML = "Batman saves Gotham";
-
         winnerDisplay.style.color = "white";
+        const bmAudio = new Audio("../assets/audio/batman.wav");
+        bmAudio.play();
       } else {
         winnerDisplay.innerHTML = "The J0ker lives to see another day!";
         winnerDisplay.style.color = "white";
+        const jkAudio = new Audio("../assets/audio/joker.wav");
+        jkAudio.play();
       }
       gameOver = true;
-      setTimeout(resetGame, 1000);
+      setTimeout(resetGame, 2000);
     }
   }
 

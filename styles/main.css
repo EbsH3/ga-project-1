@@ -88,13 +88,13 @@ h2 {
 }
 
 .grid div.batman {
-  background-image: url(../assets/images/Batman_Vol_3_86_Textless.webp);
+  background-image: url("../assets/images/Batman_Vol_3_86_Textless.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .grid div.joker {
-  background-image: url(../assets/images/705479-original.webp);
+  background-image: url("../assets/images/705479-original.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }
