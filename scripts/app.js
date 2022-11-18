@@ -34,19 +34,11 @@ function init() {
     event.target.classList.add(className);
     isPlayerOne = !isPlayerOne;
     checkWinner();
-
-    // if (
-    //   cells[event.target.dataset.index].classList.contains("batman") ||
-    //   ("joker"); {
-    //   alert("This slot is taken. Try again");
-    // } else {
-    //   handleClick(event);
-    // }
   }
 
-  // function playAudio(event) {
-  //   audio.src = `../assets/audio/${event.target.classList}.wav`;
-  //   playAudio();
+  // if (
+  //   cells[event.target.dataset.index].classList.contains("batman") {
+  //   alert("This slot is taken. Try again");
   // }
 
   function muteSound() {
@@ -150,12 +142,12 @@ function init() {
       if (winner === playerOne) {
         winnerDisplay.innerHTML = "Batman saves Gotham";
         winnerDisplay.style.color = "white";
-        const bmAudio = new Audio("../assets/audio/batman.wav");
+        const bmAudio = new Audio("./assets/audio/batman.wav");
         bmAudio.play();
       } else {
         winnerDisplay.innerHTML = "The J0ker lives to see another day!";
         winnerDisplay.style.color = "white";
-        const jkAudio = new Audio("../assets/audio/joker.wav");
+        const jkAudio = new Audio("./assets/audio/joker.wav");
         jkAudio.play();
       }
       gameOver = true;
@@ -164,10 +156,6 @@ function init() {
   }
 
   createGrid();
-
-  // Array.from(grid).forEach((cell) => {
-  //   cell.addEventListener("click", playAudio);
-  // });
 }
 
 document.addEventListener("DOMContentLoaded", init);
