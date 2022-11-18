@@ -147,7 +147,7 @@ function init() {
       } else {
         winnerDisplay.innerHTML = "The J0ker lives to see another day!";
         winnerDisplay.style.color = "white";
-        const jkAudio = new Audio("../assets/audio/joker.wav");
+        const jkAudio = new Audio("./assets/audio/joker.wav");
         jkAudio.play();
       }
       gameOver = true;
